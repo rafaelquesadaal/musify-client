@@ -1,0 +1,43 @@
+<div class="col-lg-6">
+  <h1>{{title}}</h1>
+
+  <div *ngIf="updateError">
+      <div class="alert alert-danger">
+        <strong>Error!</strong> {{updateError}}  
+      </div>
+    </div>
+    <div *ngIf="updateMessage">
+      <div class="alert alert-success">
+        <strong>Success!</strong> {{updateMessage}}  
+      </div>
+    </div>
+    <form #updateForm="ngForm" class="col-md-8 col-md-offset-1" (ngSubmit)="onUpdate();">
+      <p>
+        <label>Name</label>
+        <input name="name" #name="ngModel" [(ngModel)]="user.name" type="text" class="form-control" required/>
+        <span *ngIf="!name.valid && name.touched">The name is required</span>
+      </p>
+      <p>
+        <label>Last name</label>
+        <input name="surname" #surname="ngModel" [(ngModel)]="user.surname" type="text" class="form-control" required/>
+        <span *ngIf="!surname.valid && surname.touched">The surname is required</span>
+      </p>
+      <p>
+        <label>Email</label>
+        <input name="email" #email="ngModel" type="email" class="form-control" [(ngModel)]="user.email" required/>
+        <span *ngIf="!email.valid && email.touched">Enter the email</span>
+      </p>
+
+      <div class="centered-by-content">
+          <div class="user-img lg-circular-img" *ngIf="user.image && user.image != 'null'">
+            <img src="{{url + 'user/file/' + user.image}}">
+          </div>
+      </div>
+
+      <p>
+        <label>Upload your photo:</label>
+        <input type="file" placeholder="Select your image" (change)="onFileChange($event)">
+      </p>
+      <input type="submit" value="Update" class="btn btn-primary"/>
+    </form>
+</div>

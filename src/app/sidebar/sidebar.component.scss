@@ -1,0 +1,40 @@
+nav {
+    background: #2D2E2E;
+    height: 100%;
+    text-align: center;
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        li {
+            cursor: pointer;
+            a {
+                color: #fff;
+                padding: 20px 0 20px 0  ;
+                text-decoration: none;
+                display: block;
+            }
+
+            a:not(.footer):hover,
+            a.activated {
+                background-color: #424242;
+            }
+
+            span {
+                color: white;
+            }
+        }
+
+        hr{
+            margin: 5px;
+            border-top: 2px solid #444;
+        }
+
+        .footer {
+            cursor: auto;
+        }
+    }
+    
+}

@@ -1,0 +1,27 @@
+<div class="col-lg-6">
+  <h1>{{title}}</h1>
+  <div *ngIf="errorMessage">
+    <div class="alert alert-danger">
+      <strong>Error!</strong> {{errorMessage}}  
+    </div>
+  </div>
+  <div *ngIf="message">
+    <div class="alert alert-success">
+      <strong>Success!</strong> {{message}}  
+    </div>
+  </div>
+  <form #newArtistForm="ngForm" (ngSubmit)="onSubmit()">
+    <p>
+      <label>Name:</label>
+      <input type="text" #name="ngModel" name="name" [(ngModel)]="artist.name" class="form-control" required>
+      <span *ngIf="!name.valid && name.touched">The name is required</span>
+    </p>
+    <p>
+      <label>Description:</label>
+      <textarea type="text" #description="ngModel" name="description" [(ngModel)]="artist.description" class="form-control" required></textarea>
+      <span *ngIf="!description.valid && description.touched">The description is required</span>
+    </p>
+
+    <input type="submit" value="{{title}}" [disabled]="!newArtistForm.form.valid" class="btn btn-primary">
+  </form>
+</div>

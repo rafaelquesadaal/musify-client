@@ -1,0 +1,46 @@
+<nav *ngIf="isLoggedIn">
+  <ul>
+    <li>
+      <a routerLink='/' class="centered-by-content" routerLinkActive="activated" [routerLinkActiveOptions]="{exact:
+        true}">
+          <i class="fa fa-music fa-4x"></i>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/artists/1" class="centered-by-content" routerLinkActive="activated" [routerLinkActiveOptions]="{exact:
+        false}">
+          <i class="fa fa-star fa-3x"></i>
+          Artists
+      </a>
+    </li>
+    <li>
+      <a routerLink="/albums/1" routerLinkActive="activated">
+          <i class="fa fa-bookmark fa-3x"></i>
+          Albums
+      </a>
+    </li>
+    <li>
+      <a routerLink="/user" routerLinkActive="activated">
+          <i class="fa fa-cog fa-3x"></i>
+          Settings
+      </a>
+    </li>
+    <hr>
+    <li>
+      <a class="footer">
+        <div class="centered-by-content">
+            <div class="user-img sm-circular-img" *ngIf="identity.image && identity.image != 'null'">
+              <img src="{{url + 'user/file/' + identity.image}}">
+            </div>
+        </div>
+        <span class="centered-by-content">{{identity.name}}</span>
+      </a>
+    </li>
+    <li>
+      <a (click)="onLogout()">
+          <i class="fa fa-sign-out fa-3x"></i>
+          Logout
+      </a>
+    </li>
+  </ul>
+</nav>

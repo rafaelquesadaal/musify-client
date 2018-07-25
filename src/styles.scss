@@ -1,0 +1,204 @@
+@import 'styles-variables';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~font-awesome/css/font-awesome.min.css';
+
+body {
+    margin: 0;
+    background: #F2F2F2;
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+}
+
+
+#container {
+    display: grid;
+    grid-template-columns: 90px auto;
+    height: 100%;
+    overflow-y: hidden;
+ 
+    #content {
+        padding: 30px 50px 30px 50px;
+        margin-bottom: 105px;
+        overflow-y: auto;
+        ul {
+            list-style-type: none;
+            margin:0;padding:0;
+        
+            li {
+                background: #fff;
+                border-radius: 8px;
+                padding: 20px;
+                margin-bottom: 8px;
+        
+                a {
+                    font-size: 1.5em;
+                    text-decoration: none;
+                    font-weight: bold;
+                    color:#00A8FF;
+                }
+        
+                ul {
+                    margin-top: 20px;
+                    
+                    li {
+                        padding:0;
+        
+                        a {
+                            font-size: 1em;
+                            font-weight: 300;
+                        }
+                    }
+                }
+            }
+
+            li.page-indicator{
+                padding: 5px 10px;
+                margin: 2px;
+                cursor: pointer;
+            }
+        }
+        
+        .card-list{
+
+            li {
+                float: left;
+                min-width: 305px;
+                width: 23%;
+                height: auto;
+                margin-top: 10px;
+                margin-right: 20px;
+                padding: 0 !important;
+        
+                .card-description{
+                    padding: 20px;
+                }
+        
+                .card-info {
+                    text-align: center;
+                    height: 126px;
+                    
+                    h2 {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        height: 78.8px;
+                    }
+                }
+        
+                .card-img {
+                    display: inline-block;
+                    position: relative;
+                    width: 100%;
+                    height: 230px;
+                    overflow: hidden;
+                    border-top-left-radius: 8px;
+                    border-top-right-radius: 8px;
+        
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+
+        .inline-list{
+            margin-top: 20px;
+            width: 100%;
+            li {
+                float: left;
+                width: 100%;
+                height: auto;
+                padding: 10px 20px;
+
+                h1, h2, h3, h4, h5, h6, p, a, .buttons {
+                    display: inline;
+                    vertical-align: middle;
+                }
+
+                a {
+                    cursor: pointer;
+                    color: #2D2E2E;
+                }
+                .buttons{
+
+                    button {
+                        float: right;
+                    }
+                }
+            }
+        }
+
+        audio {
+            width: 100%;
+        }
+
+        .disabled{
+            color: red !important;
+        }
+    }
+ }
+
+ p {
+     input{
+         width: 100%;
+     }
+ }
+
+.center-elements {
+    justify-content: center;
+    display: flex;
+}
+
+.centered-by-content{
+    margin: auto;
+    display: table;
+}
+
+.lg-circular-img {
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.sm-circular-img {
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.md-circular-img {
+    display: inline-block;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.lg-circular-img img,
+.md-circular-img img,
+.sm-circular-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.no-row-margin {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.min-margin {
+    margin: 0 15px;
+}
+
+.buttons {
+    .btn{
+        margin-right: 5px;
+    }
+}

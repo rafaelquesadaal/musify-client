@@ -1,0 +1,39 @@
+<div class="col-lg-6">
+  <h1>{{title}}</h1>
+  <div *ngIf="errorMessage">
+    <div class="alert alert-danger">
+      <strong>Error!</strong> {{errorMessage}}
+    </div>
+  </div>
+  <div *ngIf="message">
+    <div class="alert alert-success">
+      <strong>Success!</strong> {{message}}  
+    </div>
+  </div>
+  <form #editArtistForm="ngForm" (ngSubmit)="onSubmit()">
+    <p>
+      <label>Name:</label>
+      <input type="text" #name="ngModel" name="name" [(ngModel)]="artist.name" class="form-control" required>
+      <span *ngIf="!name.valid && name.touched">The name is required</span>
+    </p>
+    <p>
+      <label>Description:</label>
+      <textarea type="text" #description="ngModel" name="description" [(ngModel)]="artist.description" class="form-control" required></textarea>
+      <span *ngIf="!description.valid && description.touched">The description is required</span>
+    </p>
+
+    <div class="centered-by-content">
+      <div class="user-img lg-circular-img" *ngIf="artist.image && artist.image != 'null'">
+        <img src="{{url + 'artist/file/' + artist.image}}">
+      </div>
+    </div>
+
+    <p>
+      <label>Upload a photo:</label>
+      <input type="file" placeholder="Select the image" (change)="onFileChange($event)">
+    </p>
+
+    <input type="submit" value="{{title}}" [disabled]="!editArtistForm.form.valid" class="btn btn-primary">
+  </form>
+</div>
+

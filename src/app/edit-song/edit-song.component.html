@@ -1,0 +1,43 @@
+<div class="col-lg-6">
+  <h1>{{title}}</h1>
+  <div *ngIf="errorMessage">
+    <div class="alert alert-danger">
+      <strong>Error!</strong> {{errorMessage}}
+    </div>
+  </div>
+  <div *ngIf="message">
+    <div class="alert alert-success">
+      <strong>Success!</strong> {{message}}  
+    </div>
+  </div>
+  <form #editSongForm="ngForm" (ngSubmit)="onSubmit()">
+      <p>
+        <label>Number:</label>
+        <input type="number" #number="ngModel" name="number" [(ngModel)]="song.number" class="form-control" required>
+        <span *ngIf="!number.valid && number.touched">The number is required</span>
+      </p>
+  
+      <p>
+        <label>Name:</label>
+        <input type="text" #name="ngModel" name="name" [(ngModel)]="song.name" class="form-control" required>
+        <span *ngIf="!name.valid && name.touched">The name is required</span>
+      </p>
+      <p>
+        <label>Duration:</label>
+        <input type="text" #duration="ngModel" name="duration" [(ngModel)]="song.duration" class="form-control" required>
+        <span *ngIf="!duration.valid && duration.touched">The duration is required</span>
+      </p>
+  
+      <audio controls *ngIf="song.file && song.file != 'null'">
+        <source src="{{url + 'song/file/' + song.file}}" type="audio/mpeg"/>
+          This browser does not support the audio
+      </audio>
+  
+      <p>
+        <label>Upload the song:</label>
+        <input type="file" placeholder="Select the song" (change)="onFileChange($event)" required>
+      </p>
+
+    <input type="submit" value="{{title}}" [disabled]="!editSongForm.form.valid" class="btn btn-primary">
+  </form>
+</div>

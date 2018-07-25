@@ -1,0 +1,52 @@
+<div *ngIf="album">
+  
+  <div *ngIf="errorMessage">
+    <div class="alert alert-danger">
+      <strong>Error!</strong> {{errorMessage}}
+    </div>
+  </div>
+  <div *ngIf="message">
+    <div class="alert alert-success">
+      <strong>Success!</strong> {{message}}  
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="user-img lg-circular-img" *ngIf="album.image && album.image != 'null'">
+      <img src="{{url + 'album/file/' + album.image}}">
+    </div>
+    <div class="min-margin center-elements">
+      <div class="centered-by-content">
+          <h1>{{album.title}}</h1>
+          <p>{{album.description}}</p>
+          <p>{{album.year}}</p>
+          <div class="buttons" *ngIf="isAdmin()">
+            <button routerLink="/add-song/{{album._id}}" class="btn btn-sm btn-warning">
+              <i class="fa fa-plus"></i>
+              Add Song
+            </button>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="row songs">
+      <ul class="inline-list">
+        <li *ngFor="let song of songs">
+          <div>
+            <a [class.disabled]="song.file == 'null'"><i class="fa fa-play" (click)="play(song)"></i></a>
+            <h4 class="min-margin">{{song.number}} - {{song.name}}</h4>
+            <p class="min-margin">{{song.duration}}</p>
+            <div class="buttons" *ngIf="isAdmin()">
+              <button routerLink="/edit-song/{{song._id}}" class="btn btn-sm btn-warning">
+                <i class="fa fa-pencil"></i>
+              </button>
+              <button class="btn btn-sm btn-danger" [swal]="{ title: 'Wait', text: 'Do you want to delete this song?', type: 'warning', showCancelButton: 'true'}"
+              (confirm)="onDeleteSong(song._id)">
+                <i class="fa fa-trash"></i>
+              </button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="player" *ngIf="isLoggedIn">
+    <div class="player-img">
+      <img src="{{imagePath}}">
+    </div>
+    <div class="audio">
+      <div>
+        <span>
+          <strong *ngIf="currentSong.song && currentSong.song.album.artist">{{currentSong.song.name}}</strong>
+        </span>
+        <span *ngIf="currentSong.song && currentSong.song.album.artist">  -  {{currentSong.song.album.artist.name}}</span>    
+      </div>
+      <div>
+        <audio id="audio-player" controls>
+          <source src="{{currentSong.songUrl}}" type="audio/mpeg">
+            This browser does not supports this audio 
+        </audio>
+      </div>
+    </div>
+</div>
