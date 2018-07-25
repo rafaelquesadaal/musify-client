@@ -12,7 +12,6 @@ import { UtilsService } from "../services/utils.service";
 export class SidebarComponent implements OnInit {
   
   @Output() logout: EventEmitter<any> = new EventEmitter<any>();
-  //@Input() identity;
   identity;
   url: string = CONFIG.url;
   currentUrl: string;

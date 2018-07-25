@@ -13,10 +13,6 @@ import { UtilsService } from "../services/utils.service";
 export class LoginComponent implements OnInit {
 
   userRegister: User;
-  /*@Input() user: User;
-  @Input() identity;
-  @Input() token;
-  @Output() notify: EventEmitter<any> = new EventEmitter<any>();*/
   user;
   identity;
   token;
@@ -55,10 +51,6 @@ export class LoginComponent implements OnInit {
                 localStorage.setItem('token', this.token);
                 this.utilsService.emitUpdate(true);
                 this.router.navigate(['/']);
-                /*this.notify.emit({
-                  identity: this.identity,
-                  token: this.token
-                });*/
               }
             }, err =>{
               let errorResponse = <any>err;
